@@ -596,7 +596,7 @@ if bouton:
         # ex: "r/fanTheories" → sub_id = "fantheories"
         #     → cherche "modeles/modele_fantheories_export.joblib"
         # ⚠️ Si vos fichiers ont une casse différente, ajustez le .lower()
-        sub_id        = sub.replace("r/", "").lower()
+        sub_id        = sub.replace("r/", "")
         chemin_modele = f"modeles/modele_{sub_id}_export.joblib"
         chemin_scaler = f"modeles/scaler_{sub_id}_export.joblib"
 
