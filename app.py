@@ -261,7 +261,8 @@ def preparer_donnees_brutes(titre, contenu):
         puis au modèle de classification.
     """
     texte_complet = titre + ". " + contenu
-    maintenant    = datetime.now()
+    timezone_paris = pytz.timezone('Europe/Paris')
+    maintenant = datetime.now(timezone_paris)
 
     # Construction des 10 meta-features dans l'ordre d'entraînement
     meta_features = [
