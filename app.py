@@ -508,7 +508,8 @@ if bouton:
     # permettant à l'utilisateur de comprendre ce que le modèle
     # a "vu" avant de rendre sa prédiction.
 
-    maintenant    = datetime.now()
+    timezone_paris = pytz.timezone('Europe/Paris')
+    maintenant = datetime.now(timezone_paris)
     texte_complet = titre + ". " + contenu
 
     # Calcul des features textuelles et temporelles utilisées dans la carte d'analyse.
