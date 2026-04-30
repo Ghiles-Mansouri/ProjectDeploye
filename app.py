@@ -97,7 +97,9 @@ st.markdown("""
         padding: 14px 0;
         font-size: 16px;
         font-weight: 600;
-        width: 100%;
+        width: 100%; /* Force la largeur totale */
+        display: block; /* Nécessaire avec width: 100% sur certains navigateurs */
+        text-align: center; /* Centre le texte */
         cursor: pointer;
         transition: opacity 0.2s;
     }
@@ -474,7 +476,7 @@ subreddits_selectionnes = st.multiselect(
     placeholder="Sélectionnez un ou plusieurs subreddits..."
 )
 
-bouton = st.button("🚀 Lancer l'analyse")
+bouton = st.button("🚀 Lancer l'analyse", use_container_width=True)
 
 
 # 7. RÉSULTATS — DÉCLENCHÉS AU CLIC SUR LE BOUTON
@@ -595,7 +597,6 @@ if bouton:
         # Convention de nommage : modele_{subreddit_en_minuscules}_export.joblib
         # ex: "r/fanTheories" → sub_id = "fantheories"
         #     → cherche "modeles/modele_fantheories_export.joblib"
-        # ⚠️ Si vos fichiers ont une casse différente, ajustez le .lower()
         sub_id        = sub.replace("r/", "")
         chemin_modele = f"modeles/modele_{sub_id}_export.joblib"
         chemin_scaler = f"modeles/scaler_{sub_id}_export.joblib"
